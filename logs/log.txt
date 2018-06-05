@@ -1,0 +1,22 @@
+[2018-06-05 03:05:06 pm] - User hat sich registriert: silas
+[2018-06-05 03:05:06 pm] - Session wurde gesetzt: silas
+[2018-06-05 03:09:12 pm] - User hat sich registriert: silas
+[2018-06-05 03:09:12 pm] - Session wurde gesetzt: silas
+[2018-06-05 03:11:10 pm] - User hat sich registriert: SILAS
+[2018-06-05 03:11:10 pm] - Session wurde gesetzt: SILAS
+[2018-06-05 03:16:05 pm] - User hat sich eingeloggt: asdf
+[2018-06-05 03:16:05 pm] - Session wurde gesetzt: asdf
+[2018-06-05 03:16:12 pm] - User hat sich eingeloggt: silas
+[2018-06-05 03:16:12 pm] - Session wurde gesetzt: silas
+[2018-06-05 03:16:41 pm] - User hat sich eingeloggt: silas
+[2018-06-05 03:16:41 pm] - Session wurde gesetzt: silas
+[2018-06-05 03:16:53 pm] - User hat sich eingeloggt: SILAS
+[2018-06-05 03:16:53 pm] - Session wurde gesetzt: SILAS
+[2018-06-05 03:17:10 pm] - User hat sich eingeloggt: SILAS
+[2018-06-05 03:17:10 pm] - Session wurde gesetzt: SILAS
+[2018-06-05 03:17:11 pm] - User hat sich eingeloggt: SILAS
+[2018-06-05 03:17:11 pm] - Session wurde gesetzt: SILAS
+[2018-06-05 03:18:16 pm] - User hat sich registriert: beste
+[2018-06-05 03:18:16 pm] - Session wurde gesetzt: beste
+[2018-06-05 03:18:20 pm] - User hat sich eingeloggt: beste
+[2018-06-05 03:18:21 pm] - Session wurde gesetzt: beste
