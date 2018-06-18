@@ -64,6 +64,8 @@ function newUser($name, $password){
 }
 
 function hashPassword($oldPassword) {
+  $pepper = "ThisIsARealySecureLongPassword123456789"
+  $newPassword = $oldPassword . $pepper;
   return password_hash($oldPassword, PASSWORD_BCRYPT, ["cost" => 12]);
 }
 
