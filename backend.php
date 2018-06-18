@@ -79,20 +79,38 @@ function hashPassword($oldPassword) {
 if(isset($_POST['login'])) {
   $user = $_POST['userLogin'];
   $password = $_POST['passwordLogin'];
+  
+  $attempts = countAttemptsForUser($user);
 
-  fileLog("User hat sich eingeloggt: ", $user);
 
-  login($user, $password);
+  if(login($user, $password)){
+    echo "Login was successful!";
+    fileLog("User hat sich eingeloggt: ", $user);
+    $_SESSION['userid'] = $user;
+    fileLog("Session wurde gesetzt: ", $user);
+  }elseif(is_null($attempts) || $attempts <=5){
+    echo "Login not successful, try again.";
+    $attempts += 1;
+    addAttempt($user, $attempts);
+    fileLog("Failed login: ", $user);
+  }else
+  {
+    echo "Your account got deactivated. Please ask you admin for help. ";
+    fileLog("User account deactivated: ", $user);
+  }
 
-  fileLog("Session wurde gesetzt: ", $user);
+  
 }
 
 function login($user, $password){
-  if(password_verify($password, findPasswordByUser($user))){
-    $_SESSION['userid'] = $user;
-    echo "Login was successful!";
+
+  $pepper = "ThisIsARealySecureLongPassword123456789";
+
+  if(password_verify($password . $pepper, findPasswordByUser($user))){
+    return true;
   }else{
     echo "Password is incorrect";
+    return false;
   }
 }
 
@@ -107,6 +125,27 @@ function findPasswordByUser($user){
   $stmt->close();
   $conn->close();
   return $password;
+}
+
+function countAttemptsForUser($user){
+  $conn = connectToDb();
+  $stmt = $conn->prepare("SELECT attempt FROM user WHERE user = ?;");
+  $stmt->bind_param( 's', $user);
+  $stmt->execute();
+  $stmt->bind_result($attempt);
+  $stmt->fetch();
+  $stmt->close();
+  $conn->close();
+  return $attempt;
+}
+
+function addAttempt($user, $attempt){
+  $conn = connectToDb();
+  $stmt = $conn->prepare( "UPDATE user SET attempt = ? WHERE user = ?");
+  $stmt->bind_param('ss', $attempt, $user);
+  $stmt->execute();
+  $stmt->close();
+  $conn->close();
 }
 
 
