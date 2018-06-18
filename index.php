@@ -11,6 +11,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Projekt Applikationssicherheit - M183</title>
+  <link rel="stylesheet" href="./styling/normalize.css">
+  <link rel="stylesheet" href="./styling/skeleton.css">
 </head>
   <body>
     <h1>Projekt Applikationssicherheit - M183</h1>
@@ -24,9 +26,10 @@
     <h3>Register</h3>
     <form method="post" action="backend.php" name="register"><br>
       <label for="userRegister">User</label><input id="userRegister" type="text" name="userRegister"><br>
-      <label for="passwordRegister">Password</label><input id="passwordRegister" type="password" name="passwordRegister">
+      <label for="passwordRegister">Password</label><input id="passwordRegister" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{9,}"" 
+      required title="9 or more characters, at least one number, and one uppercase and lowercase letter " name="passwordRegister">
       <input type="submit" name="register" value="Send">
     </form>
-  <?php phpinfo()?>
+    <script src="validation.js"></script>
   </body>
 </html>
